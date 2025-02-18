@@ -15,3 +15,14 @@ export const getArticles = () => {
       console.log("error fetching data");
     });
 };
+
+export const getArticleById = (article_id) => {
+  return newsApi
+    .get(`/articles/${article_id}`)
+    .then((response) => {
+      return response;
+    })
+    .catch((err) => {
+      console.log("Error fetching article");
+    });
+};

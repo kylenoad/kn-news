@@ -1,9 +1,22 @@
 import React from "react";
 import "./App.css";
-import ArticleCardGrid from "./components/ArticleCardGrid";
+import { Routes, Route } from "react-router-dom";
+import Homepage from "./components/Homepage";
+import Header from "./components/Header";
+import NavBar from "./components/NavBar";
+import SingleArticlePage from "./components/SingleArticlePage";
 
 function App() {
-  return <ArticleCardGrid />;
+  return (
+    <>
+      <Header />
+      <NavBar />
+      <Routes>
+        <Route path="/home" element={<Homepage />} />
+        <Route path="/articles/:article_id" element={<SingleArticlePage />} />
+      </Routes>
+    </>
+  );
 }
 
 export default App;
