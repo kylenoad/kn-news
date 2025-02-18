@@ -1,0 +1,29 @@
+import Comment from "./Comment";
+import { getCommentsbyarticleId } from "../api";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+
+function CommentsGrid() {
+  const [comments, setComments] = useState([]);
+  const { article_id } = useParams();
+
+  useEffect(() => {
+    getCommentsbyarticleId(article_id).then((response) => {
+      setComments(response.data.comments);
+    });
+  }, [article_id]);
+
+  return (
+    <div className="w-3/4 mx-auto">
+      <ul>
+        {comments.map((comment) => (
+          <li key={comment.comment_id}>
+            <Comment comment={comment} />
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default CommentsGrid;

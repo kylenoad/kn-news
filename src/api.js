@@ -26,3 +26,14 @@ export const getArticleById = (article_id) => {
       console.log("Error fetching article");
     });
 };
+
+export const getCommentsbyarticleId = (article_id) => {
+  return newsApi
+    .get(`/articles/${article_id}/comments`)
+    .then((response) => {
+      return response;
+    })
+    .catch((err) => {
+      console.log("Couldnt fetch comments");
+    });
+};
