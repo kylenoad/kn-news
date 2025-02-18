@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getArticleById } from "../api";
 import { useParams } from "react-router-dom";
+import CommentsGrid from "./CommentsGrid";
 
 function SingleArticlePage() {
   const [selectedArticle, setSelectedArticle] = useState({});
@@ -30,7 +31,10 @@ function SingleArticlePage() {
           <h3>{selectedArticle.body}</h3>
         </div>
       </div>
-      <div></div>
+      <div>
+        <h3 className="font-bold text-xl pl-4">Comments: </h3>
+        <CommentsGrid />
+      </div>
     </>
   );
 }
