@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Homepage from "./components/Homepage";
 import Header from "./components/Header";
 import NavBar from "./components/NavBar";
+import SingleArticlePage from "./components/SingleArticlePage";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/home" element={<Homepage />} />
+        <Route path="/articles/:article_id" element={<SingleArticlePage />} />
       </Routes>
     </>
   );
