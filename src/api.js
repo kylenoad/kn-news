@@ -8,7 +8,6 @@ export const getArticles = () => {
   return newsApi
     .get("/articles")
     .then((response) => {
-      console.log(response);
       return response;
     })
     .catch((err) => {
@@ -27,7 +26,7 @@ export const getArticleById = (article_id) => {
     });
 };
 
-export const getCommentsbyarticleId = (article_id) => {
+export const getCommentsByArticleId = (article_id) => {
   return newsApi
     .get(`/articles/${article_id}/comments`)
     .then((response) => {
@@ -35,5 +34,17 @@ export const getCommentsbyarticleId = (article_id) => {
     })
     .catch((err) => {
       console.log("Couldnt fetch comments");
+    });
+};
+
+export const getUsers = () => {
+  return newsApi
+    .get("/users")
+    .then((response) => {
+      console.log(response);
+      return response;
+    })
+    .catch((err) => {
+      console.log("Error fetching users");
     });
 };

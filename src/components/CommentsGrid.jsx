@@ -1,5 +1,5 @@
 import Comment from "./Comment";
-import { getCommentsbyarticleId } from "../api";
+import { getCommentsByArticleId } from "../api";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
@@ -8,7 +8,7 @@ function CommentsGrid() {
   const { article_id } = useParams();
 
   useEffect(() => {
-    getCommentsbyarticleId(article_id).then((response) => {
+    getCommentsByArticleId(article_id).then((response) => {
       setComments(response.data.comments);
     });
   }, [article_id]);
