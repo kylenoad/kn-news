@@ -41,10 +41,17 @@ export const getUsers = () => {
   return newsApi
     .get("/users")
     .then((response) => {
-      console.log(response);
       return response;
     })
     .catch((err) => {
       console.log("Error fetching users");
+    });
+};
+
+export const vote = () => {
+  return newsApi
+    .patch(`/articles/${article_id}`, { inc_votes: 1 })
+    .then((response) => {
+      return response;
     });
 };

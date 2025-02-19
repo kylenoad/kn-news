@@ -15,7 +15,7 @@ function SingleArticlePage() {
 
   return (
     <>
-      <div>
+      <section>
         <img
           src={selectedArticle.article_img_url}
           alt={selectedArticle.title}
@@ -27,10 +27,11 @@ function SingleArticlePage() {
         <h3 className="pl-4 mt-1 text-xl font-semibold text-gray-800">
           {selectedArticle.author}
         </h3>
+
         <div className="mt-2 p-4 bg-gray-100 rounded-lg">
           <h3>{selectedArticle.body}</h3>
         </div>
-      </div>
+      </section>
       <div>
         <h3 className="font-bold text-xl pl-4">Comments: </h3>
         <CommentsGrid />
