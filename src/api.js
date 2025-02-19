@@ -48,9 +48,17 @@ export const getUsers = () => {
     });
 };
 
-export const vote = () => {
+export const upVote = (article_id) => {
   return newsApi
     .patch(`/articles/${article_id}`, { inc_votes: 1 })
+    .then((response) => {
+      return response;
+    });
+};
+
+export const downVote = (article_id) => {
+  return newsApi
+    .patch(`/articles/${article_id}`, { inc_votes: -1 })
     .then((response) => {
       return response;
     });

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { getArticleById } from "../api";
 import { useParams } from "react-router-dom";
 import CommentsGrid from "./CommentsGrid";
+import Vote from "./Vote";
 
 function SingleArticlePage() {
   const [selectedArticle, setSelectedArticle] = useState({});
@@ -21,6 +22,9 @@ function SingleArticlePage() {
           alt={selectedArticle.title}
           className="w-full h-auto"
         />
+        <div>
+          <Vote article_id={article_id} />
+        </div>
         <h2 className="pl-4 mt-5 text-2xl font-semibold text-gray-800">
           {selectedArticle.title}
         </h2>
