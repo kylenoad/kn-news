@@ -74,3 +74,9 @@ export const postNewComment = (article_id, newComment) => {
       console.log("comment didn't post");
     });
 };
+
+export const deleteComment = (comment_id) => {
+  return newsApi.delete(`/comments/${comment_id}`).then((response) => {
+    return response;
+  });
+};

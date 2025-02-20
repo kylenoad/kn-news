@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 function CommentsGrid() {
   const [comments, setComments] = useState([]);
   const { article_id } = useParams();
+  const [deleteMessage, setDeleteMessage] = useState("");
 
   useEffect(() => {
     getCommentsByArticleId(article_id).then((response) => {
@@ -23,10 +24,21 @@ function CommentsGrid() {
           comments={comments}
         />
       </div>
+      <div>
+        {deleteMessage ? (
+          <p className="text-red-600 mt-2">{deleteMessage}</p>
+        ) : null}
+      </div>
       <ul>
         {comments.map((comment) => (
           <li key={comment.comment_id}>
-            <Comment comment={comment} />
+            <Comment
+              key={comment.comment_id}
+              comment={comment}
+              comments={comments}
+              setComments={setComments}
+              setDeleteMessage={setDeleteMessage}
+            />
           </li>
         ))}
       </ul>
