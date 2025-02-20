@@ -1,37 +1,35 @@
-function TopicsFilter({ selectedTopic, setSelectedTopic }) {
-  const handleTopicSelect = (topic) => {
-    setSelectedTopic(topic);
-  };
+import { Link } from "react-router-dom";
 
+function TopicsFilter() {
   return (
     <div className="flex space-x-5 mt-4 justify-center">
-      <button
-        onClick={() => handleTopicSelect("all")}
+      <Link
+        to="/home"
         className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
       >
         All
-      </button>
+      </Link>
 
-      <button
-        onClick={() => handleTopicSelect("coding")}
+      <Link
+        to="/home/coding"
         className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
       >
         Coding
-      </button>
+      </Link>
 
-      <button
-        onClick={() => handleTopicSelect("cooking")}
+      <Link
+        to="/home/cooking"
         className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
       >
         Cooking
-      </button>
+      </Link>
 
-      <button
-        onClick={() => handleTopicSelect("football")}
+      <Link
+        to="/home/football"
         className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
       >
         Football
-      </button>
+      </Link>
     </div>
   );
 }

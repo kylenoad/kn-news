@@ -4,9 +4,9 @@ const newsApi = axios.create({
   baseURL: "https://kn-news.onrender.com/api",
 });
 
-export const getArticles = () => {
+export const getArticles = (topic) => {
   return newsApi
-    .get("/articles")
+    .get("/articles", { params: topic ? { topic } : {} })
     .then((response) => {
       return response;
     })
@@ -73,4 +73,10 @@ export const postNewComment = (article_id, newComment) => {
     .catch((err) => {
       console.log("comment didn't post");
     });
+};
+
+export const deleteComment = (comment_id) => {
+  return newsApi.delete(`/comments/${comment_id}`).then((response) => {
+    return response;
+  });
 };
