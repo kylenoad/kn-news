@@ -1,31 +1,23 @@
 import { useState, useEffect } from "react";
 import { getArticles } from "../api";
-
+import { useParams } from "react-router-dom";
 import TopicsFilter from "./TopicsFilter";
 import ArticleCardGrid from "./ArticleCardGrid";
 
 function Homepage() {
-  const [selectedTopic, setSelectedTopic] = useState("all");
+  const { topic } = useParams();
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    getArticles(selectedTopic).then((response) => {
+    getArticles(topic).then((response) => {
       setArticles(response.data.articles);
     });
-  }, [selectedTopic]);
-
-  const filteredArticles =
-    selectedTopic === "all"
-      ? articles
-      : articles.filter((article) => article.topic === selectedTopic);
+  }, [topic]);
 
   return (
     <>
-      <TopicsFilter
-        selectedTopic={selectedTopic}
-        setSelectedTopic={setSelectedTopic}
-      />
-      <ArticleCardGrid articles={filteredArticles} />
+      <TopicsFilter />
+      <ArticleCardGrid articles={articles} />
     </>
   );
 }

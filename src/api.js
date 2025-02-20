@@ -4,9 +4,9 @@ const newsApi = axios.create({
   baseURL: "https://kn-news.onrender.com/api",
 });
 
-export const getArticles = () => {
+export const getArticles = (topic) => {
   return newsApi
-    .get("/articles")
+    .get("/articles", { params: topic ? { topic } : {} })
     .then((response) => {
       return response;
     })

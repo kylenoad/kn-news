@@ -18,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/home" element={<Homepage />} />
           <Route path="/articles/:article_id" element={<SingleArticlePage />} />
+          <Route path="/home/:topic" element={<Homepage />} />
           <Route path="*" element={<p>page not found</p>} />
         </Routes>
       </UserAccountProvider>
