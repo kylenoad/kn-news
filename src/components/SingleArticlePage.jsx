@@ -3,16 +3,26 @@ import { getArticleById } from "../api";
 import { useParams } from "react-router-dom";
 import CommentsGrid from "./CommentsGrid";
 import Vote from "./Vote";
+import ErrorPage from "../../ErrorPage";
 
 function SingleArticlePage() {
   const [selectedArticle, setSelectedArticle] = useState({});
   const { article_id } = useParams();
+  const [error, setError] = useState(false);
 
   useEffect(() => {
-    getArticleById(article_id).then((response) => {
-      setSelectedArticle(response.data.article);
-    });
+    getArticleById(article_id)
+      .then((response) => {
+        setSelectedArticle(response.data.article);
+      })
+      .catch(() => {
+        setError(true);
+      });
   }, [article_id]);
+
+  if (error) {
+    return <ErrorPage />;
+  }
 
   return (
     <>
