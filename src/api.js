@@ -63,3 +63,14 @@ export const downVote = (article_id) => {
       return response;
     });
 };
+
+export const postNewComment = (article_id, newComment) => {
+  return newsApi
+    .post(`/articles/${article_id}/comments`, newComment)
+    .then((response) => {
+      return response;
+    })
+    .catch((err) => {
+      console.log("comment didn't post");
+    });
+};
