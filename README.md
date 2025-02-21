@@ -16,10 +16,10 @@ Node v23.1.0
 
 ## Tech Stack
 
--React
--JavaScript
--Axios
--Tailwind CSS
+- React
+- JavaScript
+- Axios
+- Tailwind CSS
 
 Backend project can be found here: https://github.com/kylenoad/nc_news
 
