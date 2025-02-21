@@ -11,7 +11,7 @@ function Header() {
   };
 
   return (
-    <header className="flex justflex justify-between items-center p-5 bg-red-700">
+    <header className="flex justflex justify-between items-center p-4 bg-red-700">
       <h1 className="text-3xl font-extrabold tracking-tight text-white">
         KN News
       </h1>

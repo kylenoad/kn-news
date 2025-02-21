@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import { UserAccount } from "../Contexts/UserAccount";
 import { getArticleById, upVote, downVote } from "../api";
+import { FaArrowUp, FaArrowDown } from "react-icons/fa";
 
 function Vote({ article_id }) {
   const { loggedOnUser } = useContext(UserAccount);

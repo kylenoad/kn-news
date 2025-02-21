@@ -4,14 +4,17 @@ const newsApi = axios.create({
   baseURL: "https://kn-news.onrender.com/api",
 });
 
-export const getArticles = (topic, sort_by, order) => {
+export const getArticles = (topic, sort_by = "created_at", order = "desc") => {
+  const params = { topic, sort_by, order };
+
   return newsApi
-    .get("/articles", { params: { topic, sort_by, order } })
+    .get("/articles", { params })
     .then((response) => {
       return response;
     })
     .catch((err) => {
-      console.log("error fetching data");
+      console.log("error fetching data:", err);
+      throw err; // Propagate the error for further handling
     });
 };
 

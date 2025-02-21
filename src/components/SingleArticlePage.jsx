@@ -34,9 +34,6 @@ function SingleArticlePage() {
               alt={selectedArticle.title}
               className="w-full h-auto"
             />
-            <div>
-              <Vote article_id={article_id} />
-            </div>
             <h2 className="pl-4 mt-5 text-2xl font-semibold text-blue-800">
               {selectedArticle.title}
             </h2>
@@ -46,6 +43,9 @@ function SingleArticlePage() {
 
             <div className="mt-2 p-4 bg-gray-100 rounded-lg">
               <h3>{selectedArticle.body}</h3>
+            </div>
+            <div>
+              <Vote article_id={article_id} />
             </div>
           </section>
           <div>
