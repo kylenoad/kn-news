@@ -39,7 +39,7 @@ function Vote({ article_id }) {
   };
 
   return (
-    <div>
+    <div className="flex flex-col items-center space-y-2">
       <button
         onClick={handleVote}
         className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"

@@ -28,14 +28,18 @@ function Homepage() {
   }
   return (
     <>
-      <TopicsFilter />
-      <SortArticles
-        sortBy={sortBy}
-        setSortBy={setSortBy}
-        order={order}
-        setOrder={setOrder}
-      />
-      <ArticleCardGrid articles={articles} />
+      <div className="bg-gray-200 min-h-screen py-8">
+        <div className="max-w-7xl mx-auto px-6">
+          <TopicsFilter />
+          <SortArticles
+            sortBy={sortBy}
+            setSortBy={setSortBy}
+            order={order}
+            setOrder={setOrder}
+          />
+          <ArticleCardGrid articles={articles} />
+        </div>
+      </div>
     </>
   );
 }

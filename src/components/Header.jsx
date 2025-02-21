@@ -11,14 +11,13 @@ function Header() {
   };
 
   return (
-    <header className="flex justify-between items-center p-4 bg-gray-500">
-      <button className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
-        Toggle Theme
-      </button>
-      <h1 className="mt-5 text-3xl font-semibold text-gray-800">KN News</h1>
+    <header className="flex justflex justify-between items-center p-5 bg-gradient-to-r from-blue-600 to-blue-800 shadow-md text-whiteify-between items-center p-4 bg-gray-500">
+      <h1 className="text-3xl font-extrabold tracking-tight text-white">
+        KN News
+      </h1>
       <button
         onClick={handleLoginScreenClick}
-        className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+        className="px-5 py-2 rounded-full bg-gray-800 hover:bg-gray-700 text-white transition duration-200"
       >
         Login
       </button>
@@ -27,7 +26,7 @@ function Header() {
           <img
             src={loggedOnUser.avatar_url}
             alt={loggedOnUser.name}
-            className="w-10 h-10"
+            className="w-12 h-12 rounded-full border-4 border-white shadow-lg hover:shadow-2xl"
           />
         </div>
       )}

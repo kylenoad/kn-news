@@ -16,8 +16,8 @@ function CommentsGrid() {
   }, [article_id]);
 
   return (
-    <div className="w-3/4 mx-auto">
-      <div className="mb-6">
+    <div>
+      <div>
         <AddComment
           article_id={article_id}
           setComments={setComments}
