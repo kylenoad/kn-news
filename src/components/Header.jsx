@@ -11,8 +11,8 @@ function Header() {
   };
 
   return (
-    <header className="flex justflex justify-between items-center p-5 bg-gradient-to-r from-blue-600 to-blue-800 shadow-md text-whiteify-between items-center p-4 bg-gray-500">
-      <h1 className="text-3xl font-extrabold tracking-tight text-white">
+    <header className="flex justflex justify-between items-center p-5 ">
+      <h1 className="text-3xl font-extrabold tracking-tight text-black">
         KN News
       </h1>
       <button

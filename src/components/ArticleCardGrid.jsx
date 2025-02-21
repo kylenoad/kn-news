@@ -11,6 +11,7 @@ function ArticleCardGrid({ articles }) {
             articleImgUrl={article.article_img_url}
             body={article.body}
             votes={article.votes}
+            author={article.author}
           />
         </Link>
       ))}
