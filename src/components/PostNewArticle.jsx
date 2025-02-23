@@ -30,8 +30,8 @@ function PostNewArticle() {
         setBody("");
         setArticleImgUrl("");
       })
-      .catch((error) => {
-        console.error("Error posting article:", error);
+      .catch(() => {
+        console.error("Error posting article:");
         setMessage("Error posting article. Please try again.");
       });
   };
