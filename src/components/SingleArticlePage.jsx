@@ -1,14 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { getArticleById } from "../api";
 import { useParams } from "react-router-dom";
 import CommentsGrid from "./CommentsGrid";
 import Vote from "./Vote";
-import ErrorPage from "../../ErrorPage";
+import ErrorPage from "./ErrorPage";
+import DeleteButton from "./DeleteArticleButton";
+import { UserAccount } from "../Contexts/UserAccount";
 
 function SingleArticlePage() {
   const [selectedArticle, setSelectedArticle] = useState({});
   const { article_id } = useParams();
   const [error, setError] = useState(false);
+  const { loggedOnUser } = useContext(UserAccount);
 
   useEffect(() => {
     getArticleById(article_id)
@@ -47,6 +50,11 @@ function SingleArticlePage() {
             <div>
               <Vote article_id={article_id} />
             </div>
+            <DeleteButton
+              article_id={article_id}
+              author={selectedArticle.author}
+              loggedOnUser={loggedOnUser}
+            />
           </section>
           <div>
             <h3 className="font-bold text-xl pl-4">Comments: </h3>

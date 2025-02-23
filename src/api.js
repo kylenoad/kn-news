@@ -4,17 +4,14 @@ const newsApi = axios.create({
   baseURL: "https://kn-news.onrender.com/api",
 });
 
-export const getArticles = (topic, sort_by = "created_at", order = "desc") => {
-  const params = { topic, sort_by, order };
-
+export const getArticles = (topic, sort_by, order) => {
   return newsApi
-    .get("/articles", { params })
+    .get("/articles", { params: { topic, sort_by, order } })
     .then((response) => {
       return response;
     })
     .catch((err) => {
-      console.log("error fetching data:", err);
-      throw err; // Propagate the error for further handling
+      console.log("error fetching data");
     });
 };
 
@@ -82,4 +79,26 @@ export const deleteComment = (comment_id) => {
   return newsApi.delete(`/comments/${comment_id}`).then((response) => {
     return response;
   });
+};
+
+export const postArticle = (newArticle) => {
+  return newsApi
+    .post("/articles", newArticle)
+    .then((response) => {
+      return response;
+    })
+    .catch((err) => {
+      console.log("Error posting article");
+    });
+};
+
+export const deleteArticle = (article_id) => {
+  return newsApi
+    .delete(`/articles/${article_id}`)
+    .then((response) => {
+      return response;
+    })
+    .catch((err) => {
+      console.log("Error deleting article");
+    });
 };

@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import TopicsFilter from "./TopicsFilter";
 import ArticleCardGrid from "./ArticleCardGrid";
 import SortArticles from "./SortArticles";
-import ErrorPage from "../../ErrorPage";
+import ErrorPage from "./ErrorPage";
 
 function Homepage() {
   const { topic } = useParams();
