@@ -3,19 +3,20 @@ import { postArticle } from "../api";
 import { UserAccount } from "../Contexts/UserAccount";
 
 function PostNewArticle() {
+  const { loggedOnUser } = useContext(UserAccount);
   const [title, setTitle] = useState("");
-  const [topic, setTopic] = useState("");
+  const [topics] = useState(["coding", "cooking", "football"]);
+  const [selectedTopic, setSelectedTopic] = useState("");
   const [body, setBody] = useState("");
   const [articleImgUrl, setArticleImgUrl] = useState("");
   const [message, setMessage] = useState("");
-  const { loggedOnUser } = useContext(UserAccount);
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const newArticle = {
       title,
-      topic,
+      topic: selectedTopic,
       author: loggedOnUser.username,
       body,
       article_img_url: articleImgUrl || undefined,
@@ -25,12 +26,13 @@ function PostNewArticle() {
       .then(() => {
         setMessage("Article posted successfully!");
         setTitle("");
-        setTopic("");
+        setSelectedTopic("");
         setBody("");
         setArticleImgUrl("");
       })
-      .catch(() => {
-        console.error("Error posting article");
+      .catch((error) => {
+        console.error("Error posting article:", error);
+        setMessage("Error posting article. Please try again.");
       });
   };
 
@@ -50,13 +52,19 @@ function PostNewArticle() {
         </div>
         <div>
           <label className="block text-gray-700 font-bold mb-2">Topic</label>
-          <input
-            type="text"
-            value={topic}
-            onChange={(e) => setTopic(e.target.value)}
+          <select
+            value={selectedTopic}
+            onChange={(e) => setSelectedTopic(e.target.value)}
             className="w-full p-2 border border-gray-300 rounded"
             required
-          />
+          >
+            <option value="">Select a topic</option>
+            {topics.map((topic) => (
+              <option key={topic} value={topic}>
+                {topic.charAt(0).toUpperCase() + topic.slice(1)}
+              </option>
+            ))}
+          </select>
         </div>
         <div>
           <label className="block text-gray-700 font-bold mb-2">Body</label>
