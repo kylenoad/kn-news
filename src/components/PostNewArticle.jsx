@@ -15,12 +15,15 @@ function PostNewArticle() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    const defaultImg =
+      "https://images.pexels.com/photos/4974912/pexels-photo-4974912.jpeg?w=700&h=700";
+
     const newArticle = {
       title,
       topic: selectedTopic,
       author: loggedOnUser.username,
       body,
-      article_img_url: articleImgUrl || undefined,
+      article_img_url: articleImgUrl || defaultImg,
     };
 
     postArticle(newArticle)
