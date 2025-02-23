@@ -5,11 +5,12 @@ import { UserAccount } from "../Contexts/UserAccount";
 function PostNewArticle() {
   const { loggedOnUser } = useContext(UserAccount);
   const [title, setTitle] = useState("");
-  const [topics] = useState(["coding", "cooking", "football"]);
   const [selectedTopic, setSelectedTopic] = useState("");
   const [body, setBody] = useState("");
   const [articleImgUrl, setArticleImgUrl] = useState("");
   const [message, setMessage] = useState("");
+
+  const topics = ["coding", "cooking", "football"];
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -61,7 +62,7 @@ function PostNewArticle() {
             <option value="">Select a topic</option>
             {topics.map((topic) => (
               <option key={topic} value={topic}>
-                {topic.charAt(0).toUpperCase() + topic.slice(1)}
+                {topic}
               </option>
             ))}
           </select>
